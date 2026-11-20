@@ -23,6 +23,18 @@ Excited about the endless possibilities of technology. Let's build something ama
 
 
 
+<!-- DAILY-DEV-NOTE:START -->
+<h3 align="left">Daily Dev Note</h3>
+
+**2026-11-20 — React: reliable counter updates**
+
+- When a counter depends on its previous value, use an updater: `setQueuedJobs(queued => queued + 1)`.
+- If one click queues several increments, call the updater for each increment; React applies the queued functions in order.
+- Keep updater functions free of side effects such as API calls; development Strict Mode can invoke them twice.
+
+Source: [React — updating state based on the previous state](https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state).
+<!-- DAILY-DEV-NOTE:END -->
+
 <h3 align="left">Connect with me:</h3>
 <p align="left">
 <a href="https://www.linkedin.com/in/mokamaleldin/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="mohamed-kamaleldin" height="30" width="40" /></a>
