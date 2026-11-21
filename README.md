@@ -26,13 +26,13 @@ Excited about the endless possibilities of technology. Let's build something ama
 <!-- DAILY-DEV-NOTE:START -->
 <h3 align="left">Daily Dev Note</h3>
 
-**2026-11-20 — React: reliable counter updates**
+**2026-11-21 — TypeScript: model job states with discriminated unions**
 
-- When a counter depends on its previous value, use an updater: `setQueuedJobs(queued => queued + 1)`.
-- If one click queues several increments, call the updater for each increment; React applies the queued functions in order.
-- Keep updater functions free of side effects such as API calls; development Strict Mode can invoke them twice.
+- Give each state its own required fields: `type Job = { status: "queued" } | { status: "done"; outputUrl: string };`.
+- Check `job.status === "done"` before reading `job.outputUrl`; TypeScript narrows the union without a type assertion.
+- In a `switch (job.status)` that returns from each handled case, use `const unhandled: never = job` in `default` to catch missing cases when the union grows.
 
-Source: [React — updating state based on the previous state](https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state).
+Source: [TypeScript Handbook — discriminated unions and exhaustiveness checking](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions).
 <!-- DAILY-DEV-NOTE:END -->
 
 <h3 align="left">Connect with me:</h3>
