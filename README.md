@@ -26,13 +26,13 @@ Excited about the endless possibilities of technology. Let's build something ama
 <!-- DAILY-DEV-NOTE:START -->
 <h3 align="left">Daily Dev Note</h3>
 
-**2026-11-21 — TypeScript: model job states with discriminated unions**
+**2026-11-22 — Git: review staged changes before committing**
 
-- Give each state its own required fields: `type Job = { status: "queued" } | { status: "done"; outputUrl: string };`.
-- Check `job.status === "done"` before reading `job.outputUrl`; TypeScript narrows the union without a type assertion.
-- In a `switch (job.status)` that returns from each handled case, use `const unhandled: never = job` in `default` to catch missing cases when the union grows.
+- Use `git diff -- README.md` to inspect unstaged edits before adding them to the index.
+- After staging, run `git diff --cached` to review the changes prepared for the next commit, including edits staged earlier.
+- Run `git diff --cached --check` to flag newly introduced whitespace errors and conflict markers before committing.
 
-Source: [TypeScript Handbook — discriminated unions and exhaustiveness checking](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions).
+Source: [Git documentation — git diff](https://git-scm.com/docs/git-diff).
 <!-- DAILY-DEV-NOTE:END -->
 
 <h3 align="left">Connect with me:</h3>
