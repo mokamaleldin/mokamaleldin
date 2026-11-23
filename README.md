@@ -26,13 +26,13 @@ Excited about the endless possibilities of technology. Let's build something ama
 <!-- DAILY-DEV-NOTE:START -->
 <h3 align="left">Daily Dev Note</h3>
 
-**2026-11-22 — Git: review staged changes before committing**
+**2026-11-23 — Tailwind CSS: build responsive grids from the base layout**
 
-- Use `git diff -- README.md` to inspect unstaged edits before adding them to the index.
-- After staging, run `git diff --cached` to review the changes prepared for the next commit, including edits staged earlier.
-- Run `git diff --cached --check` to flag newly introduced whitespace errors and conflict markers before committing.
+- Start with `grid grid-cols-1 gap-4` for a one-column baseline; unprefixed utilities apply at every viewport width.
+- Add `md:grid-cols-2 lg:grid-cols-3` to increase columns at wider breakpoints; each prefixed rule starts at its breakpoint.
+- Use `md:max-lg:gap-6` to increase spacing only from `md` up to, but excluding, `lg`.
 
-Source: [Git documentation — git diff](https://git-scm.com/docs/git-diff).
+Source: [Tailwind CSS documentation — responsive design](https://tailwindcss.com/docs/responsive-design).
 <!-- DAILY-DEV-NOTE:END -->
 
 <h3 align="left">Connect with me:</h3>
