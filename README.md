@@ -26,13 +26,13 @@ Excited about the endless possibilities of technology. Let's build something ama
 <!-- DAILY-DEV-NOTE:START -->
 <h3 align="left">Daily Dev Note</h3>
 
-**2026-11-23 — Tailwind CSS: build responsive grids from the base layout**
+**2026-11-24 — Node.js: combine request timeouts and cancellation**
 
-- Start with `grid grid-cols-1 gap-4` for a one-column baseline; unprefixed utilities apply at every viewport width.
-- Add `md:grid-cols-2 lg:grid-cols-3` to increase columns at wider breakpoints; each prefixed rule starts at its breakpoint.
-- Use `md:max-lg:gap-6` to increase spacing only from `md` up to, but excluding, `lg`.
+- Pass a deadline signal to an outgoing request: `fetch(url, { signal: AbortSignal.timeout(5000) })`.
+- To honor both caller cancellation and the deadline, create `const signal = AbortSignal.any([callerSignal, AbortSignal.timeout(5000)])` and pass it to `fetch`.
+- When handling failures, check `signal.aborted` and record `signal.reason` so cancellation context is preserved.
 
-Source: [Tailwind CSS documentation — responsive design](https://tailwindcss.com/docs/responsive-design).
+Source: [Node.js documentation — AbortSignal](https://nodejs.org/api/globals.html#class-abortsignal).
 <!-- DAILY-DEV-NOTE:END -->
 
 <h3 align="left">Connect with me:</h3>
