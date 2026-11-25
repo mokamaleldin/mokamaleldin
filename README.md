@@ -26,13 +26,13 @@ Excited about the endless possibilities of technology. Let's build something ama
 <!-- DAILY-DEV-NOTE:START -->
 <h3 align="left">Daily Dev Note</h3>
 
-**2026-11-24 — Node.js: combine request timeouts and cancellation**
+**2026-11-25 — Express 5: route errors into one handling pipeline**
 
-- Pass a deadline signal to an outgoing request: `fetch(url, { signal: AbortSignal.timeout(5000) })`.
-- To honor both caller cancellation and the deadline, create `const signal = AbortSignal.any([callerSignal, AbortSignal.timeout(5000)])` and pass it to `fetch`.
-- When handling failures, check `signal.aborted` and record `signal.reason` so cancellation context is preserved.
+- Use `async` handlers and `await` operations that can fail; Express 5 forwards rejected handler promises automatically.
+- Register error middleware after your routes and keep the four-parameter signature: `(err, req, res, next)`.
+- If a response has already started, delegate with `if (res.headersSent) return next(err);` to avoid sending a second response.
 
-Source: [Node.js documentation — AbortSignal](https://nodejs.org/api/globals.html#class-abortsignal).
+Source: [Express guide — error handling](https://expressjs.com/en/guide/error-handling/).
 <!-- DAILY-DEV-NOTE:END -->
 
 <h3 align="left">Connect with me:</h3>
