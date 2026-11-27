@@ -26,13 +26,13 @@ Excited about the endless possibilities of technology. Let's build something ama
 <!-- DAILY-DEV-NOTE:START -->
 <h3 align="left">Daily Dev Note</h3>
 
-**2026-11-25 — Express 5: route errors into one handling pipeline**
+**2026-11-27 — Next.js: separate server secrets from public configuration**
 
-- Use `async` handlers and `await` operations that can fail; Express 5 forwards rejected handler promises automatically.
-- Register error middleware after your routes and keep the four-parameter signature: `(err, req, res, next)`.
-- If a response has already started, delegate with `if (res.headersSent) return next(err);` to avoid sending a second response.
+- Keep secrets such as `process.env.MEDIA_API_KEY` in server code; never prefix them with `NEXT_PUBLIC_` or include them in responses sent to the browser.
+- Use direct references like `process.env.NEXT_PUBLIC_API_URL` only for intentionally public settings; Next.js inlines their values into browser JavaScript.
+- Set public values before `next build` and rebuild when they change; changing the runtime environment will not update an already built browser bundle.
 
-Source: [Express guide — error handling](https://expressjs.com/en/guide/error-handling/).
+Source: [Next.js documentation — environment variables](https://nextjs.org/docs/app/guides/environment-variables).
 <!-- DAILY-DEV-NOTE:END -->
 
 <h3 align="left">Connect with me:</h3>
