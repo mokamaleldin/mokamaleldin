@@ -26,13 +26,13 @@ Excited about the endless possibilities of technology. Let's build something ama
 <!-- DAILY-DEV-NOTE:START -->
 <h3 align="left">Daily Dev Note</h3>
 
-**2026-11-27 — Next.js: separate server secrets from public configuration**
+**2026-11-28 — JavaScript: collect independent task outcomes with allSettled**
 
-- Keep secrets such as `process.env.MEDIA_API_KEY` in server code; never prefix them with `NEXT_PUBLIC_` or include them in responses sent to the browser.
-- Use direct references like `process.env.NEXT_PUBLIC_API_URL` only for intentionally public settings; Next.js inlines their values into browser JavaScript.
-- Set public values before `next build` and rebuild when they change; changing the runtime environment will not update an already built browser bundle.
+- Collect every outcome from independent promise-returning tasks: `const outcomes = await Promise.allSettled([loadPosts(), loadStats()]);`.
+- Check `outcome.status` first: fulfilled entries expose `outcome.value`, while rejected entries expose `outcome.reason`.
+- Pair task labels with outcomes in input order; the returned array preserves that order even when tasks finish in a different order.
 
-Source: [Next.js documentation — environment variables](https://nextjs.org/docs/app/guides/environment-variables).
+Source: [ECMAScript specification — Promise.allSettled](https://tc39.es/ecma262/multipage/control-abstraction-objects.html#sec-promise.allsettled).
 <!-- DAILY-DEV-NOTE:END -->
 
 <h3 align="left">Connect with me:</h3>
